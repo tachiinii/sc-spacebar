@@ -27,8 +27,7 @@ class ArticleController extends AbstractController
   /**
    * @Route("/news/{slug}", name="article_show")
    */
-  public function show($slug, MarkdownHelper $markdownHelper) {
-
+  public function show($slug, MarkdownHelper $markdownHelper, bool $isDebug) {
     $comments = [
       'I ate a normal rock once. It did NOT taste like bacon!',
       'Woohoo! I\'m going on an all-asteroid diet!',
