@@ -9,11 +9,13 @@
 namespace App\Service;
 
 
+use App\Helper\LoggerTrait;
 use Nexy\Slack\Client;
 
 class SlackClient
 {
 
+  use LoggerTrait;
   private $slack;
 
   public function __construct(Client $slack) {
@@ -21,6 +23,11 @@ class SlackClient
   }
 
   public function sendMessage(string $from, string $message) {
+
+    $this->logInfo('Giving daps thru Slack, yo.', [
+      'message' => $message,
+    ]);
+
     $slackMessage = $this->slack->createMessage();
 
     $slackMessage
